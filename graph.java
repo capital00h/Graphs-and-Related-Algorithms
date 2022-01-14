@@ -37,7 +37,7 @@ public class graph {
 			cur =parent[cur];
 			distance++;
 		}
-		
+		System.out.print(source +" ");
 		return distance;
 	}
 	
