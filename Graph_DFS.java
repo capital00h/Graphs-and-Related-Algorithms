@@ -14,26 +14,57 @@ public class Graph_DFS{
 		adj[source].add(destination);
 		adj[destination].add(source);
 	}
-	private boolean dfsUtil (int source , int destination , boolean visited[]) {
-		if (source == destination ) return true;
-		for (int neighbor :adj[source] ) {
-			if (!visited[neighbor]) {
-				visited[neighbor]=true;
-				boolean isConnected=dfsUtil(source, destination, visited);
-				if (isConnected) return true;
-				
-				
+	
+
+	
+	 public boolean dfsStack(int source, int destination) {
+		boolean vis[] = new boolean[adj.length];
+		vis[source] = true;
+		Stack<Integer> stack = new Stack<>();
+		
+		stack.push(source);
+		System.out.print(source+" ");
+		while(!stack.isEmpty()) {
+			int cur = stack.pop();
+			
+			if(cur == destination) return true;
+			
+			for(int neighbor: adj[cur]) {
+				if(!vis[neighbor]) {
+					vis[neighbor] = true;
+					stack.push(neighbor);
+				}
 			}
+			PrintStack(stack);
 		}
+		
 		return false;
 	}
-	public boolean dfs(int source , int destination ) {
-		boolean visited[]=new boolean[adj.length];
-		visited[source]=true;
-		return dfsUtil(source, destination, visited);
-		
-	}
 	
+	 public static void PrintStack(Stack<Integer> s)
+	 {
+	   Stack<Integer> temp = new Stack<Integer>();
+	    
+	   while (s.empty() == false)
+	   {
+	     temp.push(s.peek());
+	     s.pop();
+	   }  
+	  
+	   while (temp.empty() == false)
+	   {
+	     int t = temp.peek();
+	     System.out.print(t + " ");
+	     temp.pop();
+	  
+	     // To restore contents of
+	     // the original stack.
+	     s.push(t); 
+	   }
+	 }
+	 
+	 
+	 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner (System.in);
 		System.out.println("Enter number of vertices");
@@ -57,7 +88,8 @@ public class Graph_DFS{
 		int destination=sc.nextInt();
 		System.out.println("Enter source");
 		int source=sc.nextInt();
-		System.out.println("Possible? "+Graph.dfs(source, destination));
+		
+		System.out.println("possible " + Graph.dfsStack(source, destination));
 	
 	
 	}
