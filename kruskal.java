@@ -158,11 +158,9 @@ public class kruskal {
 			int E = sc.nextInt(); // Number of edges in graph
 			kruskal graph = new kruskal(V, E);
 			for (int i =0; i<E;++i) {
-				System.out.println("enter edge source ");
+				System.out.println("enter edge source - destination -weight ");
 				graph.edge[i].src= sc.nextInt();
-				System.out.println("Enter edge destination ");
-				graph.edge[i].dest=sc.nextInt();
-				System.out.println("Enter edge weight ");
+				graph.edge[i].dest=sc.nextInt();				
 				graph.edge[i].weight=sc.nextInt();
 			}
 
