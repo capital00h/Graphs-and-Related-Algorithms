@@ -3,13 +3,10 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 public class kruskal {
-	// Java program for Kruskal's algorithm to
-	// find Minimum Spanning Tree of a given
-	//connected, undirected and weighted graph
+	// Java program for Kruskal's algorithm to find Minimum Spanning Tree of a given connected, undirected and weighted graph
 	
 
-	public int v1=0;
-	public int e1=0;
+	
 		// A class to represent a graph edge
 		class Edge implements Comparable<Edge>
 		{
@@ -155,24 +152,12 @@ public class kruskal {
 		public static void main(String[] args)
 		{
 			Scanner sc =new Scanner(System.in);
-			
-
-			/* Let us create following weighted graph
-					10
-				0--------1
-				| \	     |
-			   6|  5\    |15
-				|	  \  |
-				2--------3
-					4	 */
 			System.out.println("enter number of vertices ");
 			int V = sc.nextInt(); // Number of vertices in graph
 			System.out.println("Enter number of Edges ");
 			int E = sc.nextInt(); // Number of edges in graph
 			kruskal graph = new kruskal(V, E);
 			for (int i =0; i<E;++i) {
-				System.out.println("Enter edge ");
-				
 				System.out.println("enter edge source ");
 				graph.edge[i].src= sc.nextInt();
 				System.out.println("Enter edge destination ");
@@ -180,38 +165,13 @@ public class kruskal {
 				System.out.println("Enter edge weight ");
 				graph.edge[i].weight=sc.nextInt();
 			}
-/*
-			// add edge 0-1
-			graph.edge[0].src = 0;
-			graph.edge[0].dest = 1;
-			graph.edge[0].weight = 10;
 
-			// add edge 0-2
-			graph.edge[1].src = 0;
-			graph.edge[1].dest = 2;
-			graph.edge[1].weight = 6;
-
-			// add edge 0-3
-			graph.edge[2].src = 0;
-			graph.edge[2].dest = 3;
-			graph.edge[2].weight = 5;
-
-			// add edge 1-3
-			graph.edge[3].src = 1;
-			graph.edge[3].dest = 3;
-			graph.edge[3].weight = 15;
-
-			// add edge 2-3
-			graph.edge[4].src = 2;
-			graph.edge[4].dest = 3;
-			graph.edge[4].weight = 4;
-*/
 			// Function call
 			graph.KruskalMST();
 		
 		}
 	}
-	// This code is contributed by Aakash Hasija
+	
 
 
 
