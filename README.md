@@ -1,1 +1,1 @@
-### This repository contains BFS , DFS and Topological Sort using DFS
+### This repository contains BFS , DFS , Topological Sort using DFS and Kruskal's Algorithm 
